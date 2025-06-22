@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Github,
@@ -15,6 +15,21 @@ import { FaInstagram } from "react-icons/fa";
 import Lanyard from "../Lanyard/Lanyard";
 
 const Contact = () => {
+  const [isClient, setIsClient] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+    setIsMobile(window.innerWidth < 768);
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -37,6 +52,10 @@ const Contact = () => {
       },
     },
   };
+
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <>
@@ -320,7 +339,7 @@ const Contact = () => {
                   <Lanyard
                     position={[0, 0, 20]}
                     gravity={[0, -35, 0]}
-                    fov={window.innerWidth < 768 ? 15 : 15}
+                    fov={isMobile ? 15 : 15}
                   />
                 </div>
               </motion.div>
