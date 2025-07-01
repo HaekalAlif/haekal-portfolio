@@ -65,16 +65,68 @@ const Contact = () => {
         rel="stylesheet"
       />
 
-      <section className="relative w-full min-h-screen bg-[#0a0a0a] py-6 sm:py-6 md:py-6 overflow-hidden">
-        {/* Background Effects */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
+      <section
+        id="contact"
+        className="relative w-full min-h-screen bg-[#0a0a0a] py-6 sm:py-6 md:py-6 overflow-hidden"
+      >
+        {/* Enhanced Background Grid with Futuristic Glow - Same as Hero */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(34,211,238,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.06)_1px,transparent_1px)] bg-[size:60px_60px]" />
+
+        {/* Secondary Grid Layer for Depth */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(147,51,234,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(147,51,234,0.04)_1px,transparent_1px)] bg-[size:120px_120px]" />
+
+        {/* Animated Grid Glow Effect */}
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(0deg, transparent 24%, rgba(34, 211, 238, 0.12) 25%, rgba(34, 211, 238, 0.12) 26%, transparent 27%, transparent 74%, rgba(34, 211, 238, 0.12) 75%, rgba(34, 211, 238, 0.12) 76%, transparent 77%, transparent),
+              linear-gradient(90deg, transparent 24%, rgba(34, 211, 238, 0.12) 25%, rgba(34, 211, 238, 0.12) 26%, transparent 27%, transparent 74%, rgba(34, 211, 238, 0.12) 75%, rgba(34, 211, 238, 0.12) 76%, transparent 77%, transparent)
+            `,
+            backgroundSize: "60px 60px",
+            filter: "drop-shadow(0 0 1px rgba(34, 211, 238, 0.5))",
+          }}
+          animate={{
+            opacity: [0.4, 0.8, 0.4],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+
+        {/* Grid Intersection Highlights */}
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              radial-gradient(circle at 0px 0px, rgba(34, 211, 238, 0.3) 1px, transparent 1px),
+              radial-gradient(circle at 60px 60px, rgba(147, 51, 234, 0.3) 1px, transparent 1px)
+            `,
+            backgroundSize: "60px 60px, 120px 120px",
+          }}
+          animate={{
+            opacity: [0.3, 0.7, 0.3],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        />
+
+        {/* Gradient Overlays */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(34,211,238,0.03)_0%,transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(147,51,234,0.03)_0%,transparent_50%)]" />
 
         {/* Glow Effects */}
         <motion.div
-          className="absolute top-1/4 left-1/4 w-[600px] h-[300px] bg-white/[0.03] rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-[600px] h-[300px] bg-gradient-to-r from-cyan-500/[0.04] to-blue-500/[0.04] rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
-            opacity: [0.03, 0.06, 0.03],
+            opacity: [0.04, 0.06, 0.04],
           }}
           transition={{
             duration: 8,
@@ -83,7 +135,7 @@ const Contact = () => {
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-to-r from-purple-500/[0.02] to-pink-500/[0.02] rounded-full blur-3xl"
           animate={{
             scale: [1.1, 1, 1.1],
             opacity: [0.02, 0.05, 0.02],
@@ -105,32 +157,48 @@ const Contact = () => {
             viewport={{ once: true, margin: "-100px" }}
           >
             {/* Heading */}
-            <motion.h2
-              className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 tracking-tight relative"
+            <motion.div
+              className="relative inline-block mb-4 sm:mb-6"
               variants={itemVariants}
-              style={{
-                fontFamily: "'Space Grotesk', sans-serif",
-                fontWeight: "700",
-                textShadow:
-                  "0 0 40px rgba(255, 255, 255, 0.3), 0 0 80px rgba(255, 255, 255, 0.1)",
-                filter: "drop-shadow(0 0 25px rgba(255, 255, 255, 0.2))",
-              }}
             >
-              Let's Connect
-              {/* Glow backdrop */}
-              <div className="absolute inset-0 text-3xl sm:text-4xl md:text-5xl font-bold text-white/10 blur-lg -z-10">
+              <h2
+                className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 relative"
+                style={{
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  textShadow: "0 0 40px rgba(255, 255, 255, 0.3)",
+                }}
+              >
                 Let's Connect
-              </div>
-            </motion.h2>
+                {/* Animated background glow */}
+                <motion.div
+                  className="absolute inset-0 text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400/20 via-blue-500/20 to-purple-600/20 bg-clip-text text-transparent blur-sm -z-10"
+                  animate={{
+                    opacity: [0.3, 0.7, 0.3],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  Let's Connect
+                </motion.div>
+              </h2>
+
+              {/* Decorative line with gradient */}
+              <motion.div
+                className="w-24 h-[2px] mx-auto mb-6 bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+              />
+            </motion.div>
 
             {/* Subheading */}
             <motion.p
-              className="text-white/70 text-sm sm:text-base md:text-lg max-w-xs sm:max-w-lg md:max-w-xl mx-auto mb-12 sm:mb-16 leading-relaxed px-2"
+              className="text-white/60 text-sm sm:text-base md:text-lg max-w-xs sm:max-w-lg md:max-w-xl mx-auto mb-12 sm:mb-16 leading-relaxed px-2"
               variants={itemVariants}
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontWeight: "400",
-              }}
+              style={{ fontFamily: "'Inter', sans-serif" }}
             >
               Whether it's a collaboration or just a quick hello — feel free to
               reach out.
@@ -144,11 +212,11 @@ const Contact = () => {
               {/* Contact Info */}
               <div className="space-y-4 sm:space-y-6">
                 <motion.div
-                  className="bg-white/[0.03] border border-white/10 rounded-xl p-4 sm:p-6 backdrop-blur-sm"
+                  className="bg-black/40 border border-white/10 rounded-xl p-4 sm:p-6 backdrop-blur-xl hover:border-cyan-400/30 transition-all duration-300"
                   variants={itemVariants}
                   whileHover={{
                     scale: 1.02,
-                    borderColor: "rgba(255,255,255,0.2)",
+                    borderColor: "rgba(34, 211, 238, 0.3)",
                   }}
                 >
                   <h3
@@ -159,7 +227,7 @@ const Contact = () => {
                   </h3>
                   <div className="space-y-2 sm:space-y-3">
                     <div className="flex items-center gap-2 sm:gap-3 text-white/70">
-                      <Mail className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
+                      <Mail className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0 text-cyan-400" />
                       <span
                         className="text-xs sm:text-sm break-all"
                         style={{ fontFamily: "'Inter', sans-serif" }}
@@ -168,7 +236,7 @@ const Contact = () => {
                       </span>
                     </div>
                     <div className="flex items-center gap-2 sm:gap-3 text-white/70">
-                      <Phone className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
+                      <Phone className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0 text-green-400" />
                       <span
                         className="text-xs sm:text-sm"
                         style={{ fontFamily: "'Inter', sans-serif" }}
@@ -177,7 +245,7 @@ const Contact = () => {
                       </span>
                     </div>
                     <div className="flex items-center gap-2 sm:gap-3 text-white/70">
-                      <MapPin className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
+                      <MapPin className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0 text-purple-400" />
                       <span
                         className="text-xs sm:text-sm"
                         style={{ fontFamily: "'Inter', sans-serif" }}
@@ -190,11 +258,11 @@ const Contact = () => {
 
                 {/* Social Media */}
                 <motion.div
-                  className="bg-white/[0.03] border border-white/10 rounded-xl p-4 sm:p-6 backdrop-blur-sm"
+                  className="bg-black/40 border border-white/10 rounded-xl p-4 sm:p-6 backdrop-blur-xl hover:border-purple-400/30 transition-all duration-300"
                   variants={itemVariants}
                   whileHover={{
                     scale: 1.02,
-                    borderColor: "rgba(255,255,255,0.2)",
+                    borderColor: "rgba(147, 51, 234, 0.3)",
                   }}
                 >
                   <h3
@@ -208,7 +276,7 @@ const Contact = () => {
                       href="https://github.com/HaekalAlif"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 sm:gap-2 text-white/60 hover:text-white transition-all duration-300 p-2 sm:p-2.5 rounded-lg hover:bg-white/5"
+                      className="flex items-center gap-1.5 sm:gap-2 text-white/60 hover:text-cyan-400 transition-all duration-300 p-2 sm:p-2.5 rounded-lg hover:bg-cyan-400/10"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       aria-label="GitHub Profile"
@@ -225,7 +293,7 @@ const Contact = () => {
                       href="https://linkedin.com/in/muhammad-haekal-alif-putra"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 sm:gap-2 text-white/60 hover:text-white transition-all duration-300 p-2 sm:p-2.5 rounded-lg hover:bg-white/5"
+                      className="flex items-center gap-1.5 sm:gap-2 text-white/60 hover:text-blue-400 transition-all duration-300 p-2 sm:p-2.5 rounded-lg hover:bg-blue-400/10"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       aria-label="LinkedIn Profile"
@@ -242,7 +310,7 @@ const Contact = () => {
                       href="https://instagram.com/mhmmdhaekall_"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 sm:gap-2 text-white/60 hover:text-white transition-all duration-300 p-2 sm:p-2.5 rounded-lg hover:bg-white/5"
+                      className="flex items-center gap-1.5 sm:gap-2 text-white/60 hover:text-purple-400 transition-all duration-300 p-2 sm:p-2.5 rounded-lg hover:bg-purple-400/10"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       aria-label="Instagram Profile"
@@ -257,7 +325,7 @@ const Contact = () => {
                     </motion.a>
                     <motion.a
                       href="mailto:haekalalifputra@gmail.com"
-                      className="flex items-center gap-1.5 sm:gap-2 text-white/60 hover:text-white transition-all duration-300 p-2 sm:p-2.5 rounded-lg hover:bg-white/5"
+                      className="flex items-center gap-1.5 sm:gap-2 text-white/60 hover:text-cyan-400 transition-all duration-300 p-2 sm:p-2.5 rounded-lg hover:bg-cyan-400/10"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       aria-label="Email Contact"
@@ -275,11 +343,11 @@ const Contact = () => {
 
                 {/* Professional Info */}
                 <motion.div
-                  className="bg-white/[0.03] border border-white/10 rounded-xl p-4 sm:p-6 backdrop-blur-sm"
+                  className="bg-black/40 border border-white/10 rounded-xl p-4 sm:p-6 backdrop-blur-xl hover:border-blue-400/30 transition-all duration-300"
                   variants={itemVariants}
                   whileHover={{
                     scale: 1.02,
-                    borderColor: "rgba(255,255,255,0.2)",
+                    borderColor: "rgba(59, 130, 246, 0.3)",
                   }}
                 >
                   <h3
@@ -290,7 +358,7 @@ const Contact = () => {
                   </h3>
                   <div className="space-y-2 sm:space-y-3">
                     <div className="flex items-center gap-2 sm:gap-3 text-white/70">
-                      <Code className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
+                      <Code className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0 text-cyan-400" />
                       <span
                         className="text-xs sm:text-sm"
                         style={{ fontFamily: "'Inter', sans-serif" }}
@@ -299,7 +367,7 @@ const Contact = () => {
                       </span>
                     </div>
                     <div className="flex items-center gap-2 sm:gap-3 text-white/70">
-                      <Briefcase className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
+                      <Briefcase className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0 text-green-400" />
                       <span
                         className="text-xs sm:text-sm"
                         style={{ fontFamily: "'Inter', sans-serif" }}
@@ -308,7 +376,7 @@ const Contact = () => {
                       </span>
                     </div>
                     <div className="flex items-center gap-2 sm:gap-3 text-white/70">
-                      <User className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
+                      <User className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0 text-purple-400" />
                       <span
                         className="text-xs sm:text-sm"
                         style={{ fontFamily: "'Inter', sans-serif" }}
@@ -322,11 +390,11 @@ const Contact = () => {
 
               {/* Lanyard */}
               <motion.div
-                className="bg-white/[0.03] border border-white/10 rounded-xl p-4 sm:p-6 backdrop-blur-sm overflow-hidden"
+                className="bg-black/40 border border-white/10 rounded-xl p-4 sm:p-6 backdrop-blur-xl overflow-hidden hover:border-cyan-400/30 transition-all duration-300"
                 variants={itemVariants}
                 whileHover={{
                   scale: 1.02,
-                  borderColor: "rgba(255,255,255,0.2)",
+                  borderColor: "rgba(34, 211, 238, 0.3)",
                 }}
               >
                 <h3
@@ -347,7 +415,19 @@ const Contact = () => {
 
             {/* Bottom Divider */}
             <motion.div className="flex justify-center" variants={itemVariants}>
-              <div className="h-[1px] w-32 bg-gradient-to-r from-transparent via-white/30 to-transparent shadow-[0_0_15px_rgba(255,255,255,0.2)]" />
+              <motion.div
+                className="h-[2px] w-32 bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                animate={{
+                  boxShadow: [
+                    "0 0 10px rgba(34, 211, 238, 0.3)",
+                    "0 0 20px rgba(34, 211, 238, 0.6)",
+                    "0 0 10px rgba(34, 211, 238, 0.3)",
+                  ],
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
             </motion.div>
           </motion.div>
         </div>
